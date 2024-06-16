@@ -1,0 +1,17 @@
+.timer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.timer-box-wrapper {
+    height: 30px;
+    width: 30px;
+    padding: 1rem;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
