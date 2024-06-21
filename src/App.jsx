@@ -5,9 +5,16 @@ import { DayCountdown } from './components/Timer'
 
 const GranCamino = () => {
   return(
-    <h1>
-      *#d/ Camino! Berlin Edition
-    </h1>
+    <>
+      <div className='full-width'>
+        <h1>
+          *#d/ Camino!
+        </h1>
+        <h2>
+          Berlin Edition
+        </h2>
+      </div>
+    </>
   )
 }
 
