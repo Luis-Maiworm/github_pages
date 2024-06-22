@@ -1,22 +1,51 @@
 
 import './App.css'
 import { DayCountdown } from './components/Timer'
+import camino from './audio/mimi_camino.mp3'
 
+import React, { useState, useEffect } from "react";
+
+const useAudio = url => {
+  const [audio] = useState(new Audio(url));
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = () => setPlaying(!playing);
+
+  useEffect(() => {
+      playing ? audio.play() : audio.pause();
+    },
+    [playing]
+  );
+
+  useEffect(() => {
+    audio.addEventListener('ended', () => setPlaying(false));
+    return () => {
+      audio.removeEventListener('ended', () => setPlaying(false));
+    };
+  }, []);
+
+  return [playing, toggle];
+};
 
 const GranCamino = () => {
+  const [playing, toggle] = useAudio(camino);
   return(
     <>
-      <div className='full-width'>
+      <header className='full-width'>
+        
         <h1>
           *#d/ Camino!
         </h1>
+        <button onClick={toggle}>{playing ? "Pause" : "Play"}</button>
         <h2>
           Berlin Edition
         </h2>
-      </div>
+      </header>
     </>
   )
 }
+
+
 
 function App() {
 
@@ -24,7 +53,6 @@ function App() {
     <>
       <div className='page-wrapper'>
         <div className='content-wrapper'>
-
         <GranCamino/>
         <DayCountdown/>
         </div>
