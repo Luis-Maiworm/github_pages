@@ -1,6 +1,9 @@
 import { useState } from "react"
 import Countdown from "react-countdown"
 import AlienLims from '../assets/lims_alien.jpeg'
+import Less from '../assets/less_huea.jpeg'
+import OkLims from '../assets/lims_ok.jpeg'
+import SammaLims from '../assets/lims_samma.jpeg'
 
 const date_str = "2024-07-13T10:00:00"
 
@@ -10,10 +13,10 @@ const Completionist = () => {
     </span>
 }
 
-const BackgroundSticker = () => {
+const BackgroundSticker = ({source}) => {
     return(
       <>
-        <img className='sticker' src={AlienLims} alt="" />
+        <img className='sticker' src={source} alt="" />
       </>
     )
   }
@@ -37,9 +40,9 @@ const renderer = ({days, hours, minutes, seconds, completed}) => {
     } else {
         return (
         <div className="timer-wrapper">
-            <TimeContainer time={days} label={"Days"} sticker={AlienLims }/>
-            <TimeContainer time={hours} label={"Hours"} sticker={AlienLims}/>
-            <TimeContainer time={minutes} label={"Minutes"} sticker={AlienLims}/>
+            <TimeContainer time={days} label={"Days"} sticker={OkLims}/>
+            <TimeContainer time={hours} label={"Hours"} sticker={SammaLims}/>
+            <TimeContainer time={minutes} label={"Minutes"} sticker={Less}/>
             <TimeContainer time={seconds} label={"Seconds"} sticker={AlienLims}/>
         </div>
         )

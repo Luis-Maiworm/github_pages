@@ -2,7 +2,7 @@
 import './App.css'
 import { DayCountdown } from './components/Timer'
 import camino from './audio/mimi_camino.mp3'
-
+import { HiMiniSpeakerWave } from "react-icons/hi2";
 import React, { useState, useEffect } from "react";
 
 const useAudio = url => {
@@ -32,11 +32,13 @@ const GranCamino = () => {
   return(
     <>
       <header className='full-width'>
-        
-        <h1>
-          *#d/ Camino!
-        </h1>
-        <button onClick={toggle}>{playing ? "Pause" : "Play"}</button>
+        <div className="audio-wrap">
+          <h1>
+            *#d/ Camino!
+          </h1>
+          <HiMiniSpeakerWave onClick={toggle}>{playing ? "Pause" : "Play"}</HiMiniSpeakerWave>
+        </div>
+
         <h2>
           Berlin Edition
         </h2>
