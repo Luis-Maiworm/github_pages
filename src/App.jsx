@@ -1,6 +1,6 @@
 
 import './App.css'
-import { DayCountdown } from './components/Timer'
+import { MainContent } from './components/MainContent'
 import camino from './audio/mimi_camino.mp3'
 import { HiMiniSpeakerWave } from "react-icons/hi2";
 import React, { useState, useEffect } from "react";
@@ -56,7 +56,7 @@ function App() {
       <div className='page-wrapper'>
         <div className='content-wrapper'>
         <GranCamino/>
-        <DayCountdown/>
+        <MainContent/>
         </div>
       </div>
     </>
