@@ -18,7 +18,7 @@ export const Questions = () => {
             setPhase(currentPhase + 1)
         }
     }
-    
+
 
     const CurrentQuestion = ({question, index}) => {
         return(
@@ -29,7 +29,7 @@ export const Questions = () => {
                 <h2>
                     {question.subtitle}
                 </h2>
-                <button onClick={toggleNext}>Weiter</button>
+                <a onClick={toggleNext}>Weiter</a>
             </>
         )
     }
@@ -43,7 +43,7 @@ export const Questions = () => {
     return(
         <>
             <CurrentQuestion question={PHASES[currentPhase]} index={currentPhase}/>
-            <button onClick={togglePrevious}>Previous</button>
+            <a onClick={togglePrevious}>Previous</a>
         </>
     )
 
