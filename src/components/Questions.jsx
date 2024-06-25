@@ -19,26 +19,62 @@ export const Questions = () => {
         }
     }
 
-
-    const CurrentQuestion = ({question, index}) => {
-        return(
-            <>
-                <h1>
-                    {index+1}.{question.title} 
-                </h1>
-                <h2>
-                    {question.subtitle}
-                </h2>
-                <a onClick={toggleNext}>Weiter</a>
-            </>
-        )
-    }
-
     const togglePrevious = () => {
         if(currentPhase > 0) {
             setPhase(currentPhase-1);
         }
     }
+
+    const CurrentAnswer = ({}) => {
+
+
+        
+        return(
+            <>
+                <a onClick={toggleNext}>Weiter</a>
+            </>
+        )
+    }
+
+    const CurrentQuestion = ({question, index}) => {
+        const [isAnswered, setAnswered] = useState(false);
+        const [answerIndex, setAnswerIndex] = useState(0);
+        const toggleClickAnswer = (index) => {
+            
+        }
+
+        
+
+        return(
+            <>
+                <h1>
+                    {currentPhase+1}.{question.title} 
+                </h1>
+                {
+                    !isAnswered ? 
+                        <>
+                            <h2>
+                                {question.subtitle}
+                            </h2>
+                            {
+                                question.questions.map(
+                                    (question, i) => 
+                                        <a className="answer-button" onClick={toggleClickAnswer(i)}>
+                                            {question}
+                                        </a>
+                                )
+                            }
+                        </> : <>
+                            <div>
+                                
+                            </div>
+                        </>
+                }
+                
+            </> 
+        )
+    }
+
 
     return(
         <>
