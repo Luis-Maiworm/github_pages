@@ -19,6 +19,9 @@ export const Questions = () => {
         }
     }
 
+    const AnswerPossibilities = ({Phase}) => {
+
+    }
 
     const CurrentQuestion = ({question, index}) => {
         return(

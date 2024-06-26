@@ -16,13 +16,13 @@ export const PHASES = [
         "Früüühstüüück!",
         "Morgenstund hat Gold im Mund",
         "gif",
-        ["Wer", "Was"],
-        ["Du", "Egal was"],
+        ["Stilbruch", "Gebrochener Stil"],
+        ["Ab ins Cafe Stilbruch!", "Haha lol, auch Stilbruch."],
         ["gif1", "gif2"]
     ), 
     new Phase(
         "Drink!",
-        "Stay hydrated, and awake!",
+        "Stay hydrated/awake!",
         "gif",
         ["Wer", "Was"],
         ["Du", "Egal was"],
