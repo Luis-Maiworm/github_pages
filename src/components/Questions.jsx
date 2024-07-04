@@ -16,70 +16,79 @@ export const Questions = () => {
     const toggleNext = () => {
         if(currentPhase + 1 < PHASES.length) {
             setPhase(currentPhase + 1)
+            setAnswered(false);
+        } else {
+            //FINISHED
         }
     }
-
+    const [isAnswered, setAnswered] = useState(false);
+    const [answerId, setAnswerId] = useState(0);
     const togglePrevious = () => {
-        if(currentPhase > 0) {
+        if(isAnswered) {
+            setAnswered(false);
+        }
+        else if(currentPhase > 0) {
             setPhase(currentPhase-1);
         }
     }
-
-    const CurrentAnswer = ({}) => {
+    
+    
+    const CurrentAnswer = ({answer, index}) => {
 
 
         
         return(
             <>
+                <img src={answer.answers_gif[answerId]} alt="" />
+                <div>
+                    {answer.answers[answerId]}
+                </div>
                 <a onClick={toggleNext}>Weiter</a>
             </>
         )
     }
 
     const CurrentQuestion = ({question, index}) => {
-        const [isAnswered, setAnswered] = useState(false);
-        const [answerIndex, setAnswerIndex] = useState(0);
         const toggleClickAnswer = (index) => {
-            
+            setAnswered(true);
+            setAnswerId(index);
         }
-
-        
-
         return(
             <>
                 <h1>
-                    {currentPhase+1}.{question.title} 
+                    {currentPhase+1}. {question.title} 
                 </h1>
-                {
-                    !isAnswered ? 
-                        <>
-                            <h2>
-                                {question.subtitle}
-                            </h2>
-                            {
-                                question.questions.map(
-                                    (question, i) => 
-                                        <a className="answer-button" onClick={toggleClickAnswer(i)}>
-                                            {question}
-                                        </a>
-                                )
-                            }
-                        </> : <>
-                            <div>
-                                
-                            </div>
-                        </>
-                }
-                
-            </> 
+
+                <h2>
+                    {question.subtitle}
+                </h2>
+                <div className="answer-wrapper">
+                    {
+                        question.questions.map(
+                            (question, i) => 
+                                <a className="answer-button" onClick={() => toggleClickAnswer(i)}>
+                                    {question}
+                                </a>
+                        )
+                    }
+                </div>
+            </>    
         )
     }
 
 
     return(
         <>
-            <CurrentQuestion question={PHASES[currentPhase]} index={currentPhase}/>
+            {
+                !isAnswered ?
+                <CurrentQuestion question={PHASES[currentPhase]} index={currentPhase}/>
+                :
+                <CurrentAnswer answer={PHASES[currentPhase]} index={currentPhase}/>
+
+            }
+            
             <a onClick={togglePrevious}>Previous</a>
+            <h3>{currentPhase+1}/{PHASES.length}</h3>
         </>
     )
 
