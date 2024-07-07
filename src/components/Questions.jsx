@@ -78,17 +78,21 @@ export const Questions = () => {
 
 
     return(
-        <>
-            {
-                !isAnswered ?
-                <CurrentQuestion question={PHASES[currentPhase]} index={currentPhase}/>
-                :
-                <CurrentAnswer answer={PHASES[currentPhase]} index={currentPhase}/>
+        <>  
+            <div className="phase-wrapper">
+                {
+                    !isAnswered ?
+                    <CurrentQuestion question={PHASES[currentPhase]} index={currentPhase}/>
+                    :
+                    <CurrentAnswer answer={PHASES[currentPhase]} index={currentPhase}/>
 
-            }
-            
-            <a onClick={togglePrevious}>Previous</a>
-            <h3>{currentPhase+1}/{PHASES.length}</h3>
+                }
+
+            </div>
+            <div className="question-footer">
+                <a className="previous-button" onClick={togglePrevious}>Previous</a>
+                <h3>{currentPhase+1}/{PHASES.length}</h3>
+            </div>
         </>
     )
 
