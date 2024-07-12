@@ -32,10 +32,7 @@ export const Questions = () => {
         }
     }
     
-    
     const CurrentAnswer = ({answer, index}) => {
-
-
         
         return(
             <>
@@ -62,6 +59,7 @@ export const Questions = () => {
                 <h2>
                     {question.subtitle}
                 </h2>
+                <img src={question.main_gif} alt="" />
                 <div className="answer-wrapper">
                     {
                         question.questions.map(
@@ -75,7 +73,6 @@ export const Questions = () => {
             </>    
         )
     }
-
 
     return(
         <>  
@@ -95,5 +92,4 @@ export const Questions = () => {
             </div>
         </>
     )
-
 }
